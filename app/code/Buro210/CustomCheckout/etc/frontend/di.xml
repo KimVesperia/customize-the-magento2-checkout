@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Kim Phung - kimphung@buro210.nl
+ * @date 12-12-2023
+ * @category BURO210
+ * @package Buro210_CustomCheckout
+ * @copyright Copyright © BURO210 (www.buro210.nl)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="buro210_customcheckout_checkout_layout_processor_updateaddresssortorder" xsi:type="object">
+                    Buro210\CustomCheckout\Block\Checkout\LayoutProcessor\UpdateAddressSortOrder
+                </item>
+                <item name="buro210_customcheckout_checkout_layout_processor_addressclassificationattribute" xsi:type="object">
+                    Buro210\CustomCheckout\Block\Checkout\LayoutProcessor\AddressClassificationAttribute
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="buro210_customcheckout_checkoutconfigprovider" xsi:type="object">
+                    Buro210\CustomCheckout\Model\CheckoutConfigProvider
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
